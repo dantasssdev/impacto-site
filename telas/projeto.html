@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conheça nossos projetos</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body class="pagina-projetos">
+
+    <main class="projetos">
+
+        <!-- TÍTULO -->
+
+        <h1 class="titulo-projetos">
+            CONHEÇA NOSSOS PROJETOS
+        </h1>
+
+
+        <!-- PRIMEIRA FILEIRA -->
+
+        <section class="lista-projetos">
+
+            <button class="projeto" onclick="abrirProjeto('renova')">
+                RENOVA
+            </button>
+
+            <button class="projeto" onclick="abrirProjeto('essenza')">
+                ESSENZA
+            </button>
+
+            <button class="projeto" onclick="abrirProjeto('impacto')">
+                IMPACTO
+            </button>
+
+
+            <!-- SEGUNDA FILEIRA -->
+
+            <button class="projeto" onclick="abrirProjeto('vitor')">
+                PROJETO DO VITOR
+            </button>
+
+            
+            <a href="topicos.html" class="projeto botao-proximatela">
+                PRÓXIMA TELA
+            </a>
+
+            <button class="projeto" onclick="abrirProjeto('robotica')">
+                ROBOTICA 1
+            </button>
+
+
+        </section>
+
+    </main>
+
+
+    <!-- FUNDO ESCURO / DESFOCADO -->
+
+    <div class="fundo-modal" id="fundoModal" onclick="fecharProjeto()">
+    </div>
+
+
+    <!-- CARD DO PROJETO -->
+
+    <section class="modal-projeto" id="modalProjeto">
+
+        <button class="fechar" onclick="fecharProjeto()">
+            ×
+        </button>
+
+        <img
+            id="imagemProjeto"
+            src=""
+            alt="Imagem do projeto"
+        >
+
+        <h2 id="nomeProjeto">
+            Projeto
+        </h2>
+
+        <p id="descricaoProjeto">
+            Informações sobre o projeto.
+        </p>
+
+        <button class="botao-voltar" onclick="fecharProjeto()">
+            VOLTAR
+        </button>
+
+    </section>
+
+
+    <script src="../JavaScript/projeto.js"></script>
+
+</body>
+
+</html>
