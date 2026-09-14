@@ -18,6 +18,43 @@ body {
    TELA INICIAL
 ========================= */
 
+.identificacao-turma {
+    position: fixed;
+    top: 25px;
+    left: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    z-index: 100;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.logo-turma {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: white;
+    border: 2px solid rgba(124, 255, 155, 0.8);
+}
+
+.logo-turma img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .inicio {
     width: 100%;
     min-height: 100vh;
@@ -319,11 +356,12 @@ body {
 /* Botões dos projetos */
 
 .projeto {
-    height: 125px;
+    weight: 10px;
+    height: 200px;
 
     border: none;
 
-    border-radius: 14px;
+    border-radius: 20px;
 
     background: #ffffff;
 
@@ -376,7 +414,7 @@ body {
 
     display: none;
 
-    background: rgba(0, 0, 0, 0.65);
+    background: rgba(0, 0, 0, 0.70);
 
     backdrop-filter: blur(8px);
 }
@@ -390,7 +428,7 @@ body {
 
 
 /* =========================================
-   MODAL
+   MODAL DO PROJETO
 ========================================= */
 
 .modal-projeto {
@@ -403,10 +441,11 @@ body {
 
     width: 560px;
     max-width: 90%;
-
-    min-height: 400px;
+    max-height: 88vh;
 
     padding: 25px;
+
+    box-sizing: border-box;
 
     transform: translate(-50%, -50%) scale(0.9);
 
@@ -423,7 +462,9 @@ body {
     border-radius: 16px;
 
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.5);
+        0 15px 50px rgba(0, 0, 0, 0.55);
+
+    overflow-y: auto;
 }
 
 
@@ -460,6 +501,21 @@ body {
 
 
 /* =========================================
+   TÍTULO DO PROJETO
+========================================= */
+
+.modal-projeto h2 {
+    width: 100%;
+
+    margin: 0 0 18px;
+
+    font-size: 25px;
+
+    color: #173d2b;
+}
+
+
+/* =========================================
    IMAGEM DO PROJETO
 ========================================= */
 
@@ -473,73 +529,79 @@ body {
     border-radius: 10px;
 
     margin-bottom: 20px;
+
+    background: #eeeeee;
 }
 
 
 /* =========================================
-   NOME
+   QUADRADO DE INFORMAÇÕES
 ========================================= */
 
-.modal-projeto h2 {
-    margin-bottom: 12px;
+.informacoes-projeto {
+    width: 100%;
 
-    font-size: 25px;
+    min-height: 120px;
+
+    padding: 20px 22px;
+
+    box-sizing: border-box;
+
+    background: #f3f3f3;
+
+    border-radius: 10px;
+
+    border: 1px solid #dddddd;
+
+    text-align: center;
+}
+
+.informacoes-projeto h3 {
+    margin: 0 0 10px;
+
+    font-size: 15px;
 
     color: #173d2b;
 }
 
-
-/* =========================================
-   DESCRIÇÃO
-========================================= */
-
-.modal-projeto p {
-    max-width: 450px;
-
-    margin-bottom: 22px;
+.informacoes-projeto p {
+    margin: 0;
 
     color: #555555;
 
-    font-size: 15px;
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* Compatibilidade caso ainda esteja usando <p> direto no modal */
+
+.modal-projeto > p {
+    width: 100%;
+
+    margin: 0 0 22px;
+
+    padding: 20px 22px;
+
+    box-sizing: border-box;
+
+    background: #f3f3f3;
+
+    border-radius: 10px;
+
+    border: 1px solid #dddddd;
+
+    color: #555555;
+
+    font-size: 14px;
 
     line-height: 1.5;
 }
 
 
 /* =========================================
-   BOTÃO VOLTAR
-========================================= */
-
-.botao-voltar {
-    padding: 11px 35px;
-
-    border: none;
-
-    border-radius: 8px;
-
-    background: #173d2b;
-
-    color: white;
-
-    font-size: 13px;
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-
-.botao-voltar:hover {
-    background: #276443;
-
-    transform: translateY(-2px);
-}
-
-
-/* =========================================
-   X
+   BOTÃO FECHAR
 ========================================= */
 
 .fechar {
@@ -564,81 +626,34 @@ body {
     cursor: pointer;
 
     z-index: 2;
+
+    transition: 0.2s;
 }
 
 
 .fechar:hover {
     background: rgba(0, 0, 0, 0.15);
+
+    transform: scale(1.05);
 }
 
 
 /* =========================================
-   CELULAR
+   BOTÃO VOLTAR DO MODAL
 ========================================= */
 
-@media (max-width: 700px) {
+.modal-projeto .botao-voltar {
+    margin-top: 20px;
 
-    .projetos {
-    width: 92%;
-    max-width: 1000px;
-
-    min-height: 700px;
-
-    padding: 45px 45px 70px;
-
-    background: rgba(4, 20, 9, 0.88);
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 0 20px rgba(0, 0, 0, 0.6),
-        0 0 35px rgba(25, 255, 100, 0.05);
-}
-
-    .titulo-projetos {
-    width: 420px;
-
-    margin: 0 auto 50px;
-
-    padding: 14px 20px;
-
-    text-align: center;
-
-    font-size: 16px;
-
-    color: #111;
-
-    background: #ffffff;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 0 10px rgba(255, 255, 255, 0.15);
-}
-
-   .lista-projetos {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    column-gap: 25px;
-    row-gap: 40px;
-
-    padding: 0 0 20px;
-}
-
-    .projeto {
-    height: 115px;
+    padding: 11px 35px;
 
     border: none;
 
-    border-radius: 14px;
+    border-radius: 8px;
 
-    background: #ffffff;
+    background: #173d2b;
 
-    color: #111111;
-
-    font-family: Arial, Helvetica, sans-serif;
+    color: white;
 
     font-size: 13px;
 
@@ -646,25 +661,20 @@ body {
 
     cursor: pointer;
 
-    transition: 0.25s;
-
-    box-shadow:
-        0 5px 12px rgba(0, 0, 0, 0.15);
-}
+    transition: 0.2s;
 }
 
 
-@media (max-width: 450px) {
+.modal-projeto .botao-voltar:hover {
+    background: #276443;
 
-    .lista-projetos {
-        grid-template-columns: 1fr;
-    }
-
-    .projeto {
-        height: 80px;
-    }
-
+    transform: translateY(-2px);
 }
+
+
+/* =========================================
+   BOTÃO PRÓXIMA TELA
+========================================= */
 
 .botao-proximatela {
     width: 170px;
@@ -684,6 +694,83 @@ body {
     font-size: 12px;
 
     text-decoration: none;
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .projetos {
+        width: 92%;
+        max-width: 1000px;
+
+        min-height: 700px;
+
+        padding: 45px 30px 70px;
+    }
+
+    .titulo-projetos {
+        width: min(420px, 100%);
+
+        margin: 0 auto 50px;
+    }
+
+    .lista-projetos {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        column-gap: 20px;
+        row-gap: 30px;
+
+        padding: 0 0 20px;
+    }
+
+    .projeto {
+        height: 115px;
+    }
+
+    .modal-projeto {
+        width: 92%;
+
+        padding: 22px 18px;
+
+        max-height: 90vh;
+    }
+
+    .modal-projeto h2 {
+        font-size: 21px;
+
+        padding-right: 25px;
+    }
+
+    .modal-projeto img {
+        height: 190px;
+    }
+
+    .informacoes-projeto {
+        padding: 17px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .lista-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .projeto {
+        height: 80px;
+    }
+
+    .modal-projeto img {
+        height: 160px;
+    }
+
 }
 
 /* =========================================
@@ -768,6 +855,86 @@ body {
     transform: translateY(-2px);
 }
 
+
+/* =========================================
+   CORREÇÃO DOS TEXTOS E PROGRESSO
+========================================= */
+
+.topicos {
+    color: #ffffff;
+}
+
+.topicos h1,
+.topicos h2,
+.topicos h3,
+.topicos p,
+.topicos span {
+    color: #ffffff;
+}
+
+.progresso {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.progresso h2 {
+    margin: 0 0 4px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.progresso p {
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.barra-progresso {
+    width: 450px;
+    max-width: 90%;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.30);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.barra-progresso-preenchida {
+    width: 0%;
+    height: 100%;
+    background: #159447;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(21, 148, 71, 0.45);
+}
+
+/* Curiosidade / VOCÊ SABIA? */
+
+.curiosidade {
+    width: 100%;
+    margin: 0 0 25px;
+    text-align: left;
+    color: #ffffff;
+}
+
+.curiosidade h2,
+.curiosidade h3 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.curiosidade p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.4;
+}
 
 /* =========================================
    LISTA DOS TÓPICOS
@@ -1028,9 +1195,69 @@ body {
 
 }
 
+@media (max-width: 550px) {
+
+    .progresso {
+        margin-bottom: 25px;
+    }
+
+    .progresso h2 {
+        font-size: 20px;
+    }
+
+    .progresso p {
+        font-size: 11px;
+    }
+
+    .barra-progresso {
+        width: 100%;
+        height: 15px;
+    }
+
+    .curiosidade h2,
+    .curiosidade h3 {
+        font-size: 18px;
+    }
+
+    .curiosidade p {
+        font-size: 11px;
+    }
+
+}
+
 /* =========================================
    TELA - O QUE É SUSTENTABILIDADE
 ========================================= */
+
+/* ============================= */
+/* IMAGENS - PÁGINA SUSTENTABILIDADE */
+/* ============================= */
+
+.pagina-sustentabilidade .espaco-imagem {
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.pagina-sustentabilidade .espaco-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- CONFIGURAÇÃO PADRÃO (Para Computador/Telas Grandes) --- */
+.pagina-sustentabilidade .imagem-direita {
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.pagina-sustentabilidade .imagem-direita img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
 
 .pagina-sustentabilidade {
     min-height: 100vh;
@@ -1049,11 +1276,6 @@ body {
 
     overflow-x: hidden;
 }
-
-
-/* =========================================
-   ÁREA PRINCIPAL
-========================================= */
 
 .conteudo-sustentabilidade {
     width: 92%;
@@ -1074,10 +1296,7 @@ body {
     position: relative;
 }
 
-
-/* =========================================
-   TÍTULO
-========================================= */
+/* TÍTULO */
 
 .conteudo-sustentabilidade > h1 {
     text-align: center;
@@ -1098,10 +1317,7 @@ body {
     color: #075f2b;
 }
 
-
-/* =========================================
-   ÁREA DOS TEMAS
-========================================= */
+/* ÁREA DOS TEMAS */
 
 .conteudo-temas {
     display: grid;
@@ -1115,14 +1331,10 @@ body {
     min-height: 390px;
 }
 
-
-/* =========================================
-   BLOCO ESQUERDO
-========================================= */
+/* BLOCO ESQUERDO */
 
 .bloco-esquerdo {
     display: flex;
-
     flex-direction: column;
 
     gap: 15px;
@@ -1134,13 +1346,11 @@ body {
     border-radius: 14px;
 }
 
-
-/* =========================================
-   BLOCOS DE TEXTO
-========================================= */
+/* BLOCOS DE TEXTO */
 
 .espaco-texto {
     display: flex;
+    flex-direction: column;
 
     align-items: center;
     justify-content: center;
@@ -1150,20 +1360,43 @@ body {
     border-radius: 14px;
 
     min-height: 125px;
-}
 
-.espaco-texto h2 {
-    font-size: 13px;
+    padding: 20px 25px;
 
-    color: #111111;
+    box-sizing: border-box;
 
     text-align: center;
 }
 
+.espaco-texto h2 {
+    margin: 0 0 12px;
 
-/* =========================================
-   IMAGEM ESQUERDA
-========================================= */
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #111111;
+
+    text-align: center;
+
+    line-height: 1.25;
+}
+
+.espaco-texto p {
+    margin: 0;
+
+    max-width: 90%;
+
+    font-size: 14px;
+    font-weight: normal;
+
+    color: #333333;
+
+    line-height: 1.45;
+
+    text-align: center;
+}
+
+/* IMAGEM ESQUERDA */
 
 .espaco-imagem {
     flex: 1;
@@ -1182,18 +1415,13 @@ body {
     color: #ffffff;
 
     font-size: 12px;
-
     font-weight: bold;
 }
 
-
-/* =========================================
-   BLOCO DIREITO
-========================================= */
+/* BLOCO DIREITO */
 
 .bloco-direito {
     display: flex;
-
     flex-direction: column;
 
     gap: 20px;
@@ -1207,10 +1435,7 @@ body {
     flex: 1;
 }
 
-
-/* =========================================
-   IMAGEM DA DIREITA
-========================================= */
+/* IMAGEM DA DIREITA */
 
 .imagem-direita {
     display: flex;
@@ -1227,14 +1452,10 @@ body {
     color: #ffffff;
 
     font-size: 12px;
-
     font-weight: bold;
 }
 
-
-/* =========================================
-   BOTÕES DE NAVEGAÇÃO
-========================================= */
+/* BOTÕES DE NAVEGAÇÃO */
 
 .botoes-navegacao {
     display: flex;
@@ -1247,41 +1468,34 @@ body {
     margin-top: 35px;
 }
 
+/* IMPORTANTE: este estilo fica limitado aos botões da página de conteúdo.
+   Assim não altera os botões PERGUNTAS da tela de tópicos. */
+.botoes-navegacao .botao-perguntas {
+    min-width: 120px;
 
-/* Perguntas */
+    padding: 12px 25px;
 
-.botao-pergunta {
-    width: 100%;
-    height: 70px;
+    border-radius: 9px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: #ffffff;
 
-    padding: 10px 15px;
-    box-sizing: border-box;
+    color: #111111;
 
-    background: white;
-    color: #080808;
-
-    border-radius: 20px;
-
-    font-size: 14px;
-    font-weight: bold;
+    text-decoration: none;
 
     text-align: center;
-    line-height: 1.2;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    transition: 0.25s;
 }
 
-
-.botao-perguntas:hover {
+.botoes-navegacao .botao-perguntas:hover {
     background: #d8ffd3;
 
     transform: translateY(-2px);
 }
-
-
-/* Voltar */
 
 .botoes-navegacao .botao-voltar {
     min-width: 100px;
@@ -1299,7 +1513,6 @@ body {
     text-align: center;
 
     font-size: 12px;
-
     font-weight: bold;
 
     transition: 0.25s;
@@ -1311,10 +1524,7 @@ body {
     transform: translateY(-2px);
 }
 
-
-/* =========================================
-   RESPONSIVIDADE
-========================================= */
+/* RESPONSIVIDADE */
 
 @media (max-width: 800px) {
 
@@ -1327,7 +1537,6 @@ body {
     }
 
 }
-
 
 @media (max-width: 600px) {
 
@@ -1354,6 +1563,7 @@ body {
     }
 
 }
+
 /* ================================
    QUIZ
 ================================ */
@@ -1791,4 +2001,207 @@ body {
 
 .botao-reiniciar:hover {
     transform: translateY(-2px);
+}
+
+/* =========================================================
+   CORREÇÃO FINAL - TELA DE TÓPICOS
+   NÃO ALTERA OS OUTROS ESTILOS DO PROJETO
+========================================================= */
+
+/* BLOCO DE PROGRESSO */
+
+.pagina-topicos .progresso {
+    width: 100%;
+    margin: 0 auto 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pagina-topicos .progresso h2 {
+    margin: 0 0 5px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.pagina-topicos .progresso p {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: normal;
+}
+
+/* BARRA */
+
+.pagina-topicos .barra-progresso {
+    width: 450px;
+    max-width: 90%;
+    height: 18px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.pagina-topicos .barra-progresso-preenchida {
+    width: 0%;
+    height: 100%;
+    min-width: 0;
+    padding: 0;
+    background: #159447;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(21, 148, 71, 0.45);
+}
+
+/* VOCÊ SABIA? - QUADRADINHO */
+
+.pagina-topicos .curiosidade {
+
+    width: 100%;
+    margin: 0 0 28px;
+    padding: 18px 24px;
+    box-sizing: border-box;
+    background: transparent;
+    border: 1px solid rgba(124, 255, 155, 0.25);
+    border-radius: 14px;
+    color: white;
+    text-align: left;
+    box-shadow: none;
+
+}
+
+.pagina-topicos .curiosidade h2,
+.pagina-topicos .curiosidade h3 {
+    margin: 0 0 7px;
+    color: #ffffff;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.pagina-topicos .curiosidade p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* ÍCONE DA CURIOSIDADE, SE ESTIVER SEPARADO NO HTML */
+
+.pagina-topicos .curiosidade .icone-curiosidade {
+    margin-right: 7px;
+}
+
+/* GARANTE QUE OS BOTÕES DA LISTA NÃO HERDEM O ESTILO DO QUIZ */
+
+.pagina-topicos .lista-topicos .botao-perguntas {
+    width: auto;
+    height: auto;
+    min-height: 55px;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #111111;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.pagina-topicos .lista-topicos .botao-perguntas:hover {
+    background: #d8ffd3;
+}
+
+/* COMPLETO */
+
+.pagina-topicos .lista-topicos .botao-perguntas.completo {
+    background: #159447;
+    color: #ffffff;
+    pointer-events: none;
+    cursor: default;
+    box-shadow: 0 0 12px rgba(21, 148, 71, 0.35);
+}
+
+/* RESPONSIVIDADE DA BARRA E CURIOSIDADE */
+
+@media (max-width: 550px) {
+
+    .pagina-topicos .barra-progresso {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .pagina-topicos .curiosidade {
+        padding: 16px 18px;
+    }
+
+    .pagina-topicos .curiosidade h2,
+    .pagina-topicos .curiosidade h3 {
+        font-size: 18px;
+    }
+
+}
+
+/* ================================
+   PROGRESSO DOS TÓPICOS
+================================ */
+
+.progresso {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.progresso h2 {
+    margin: 0 0 10px;
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.progresso p {
+    margin: 8px 0 0;
+
+    color: #ffffff;
+
+    font-size: 13px;
+}
+
+
+/* BARRA */
+
+.barra-progresso {
+    width: 80%;
+    max-width: 650px;
+
+    height: 18px;
+
+    margin: 0 auto;
+
+    background: #35423a;
+
+    border: 1px solid #68736c;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+
+/* PARTE VERDE DA BARRA */
+
+.barra-progresso-preenchida {
+    height: 100%;
+
+    width: 0%;
+
+    background: #20c866;
+
+    border-radius: 20px;
+
+    transition: width 0.5s ease;
 }

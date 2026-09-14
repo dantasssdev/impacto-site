@@ -1,16 +1,12 @@
-/* ================================
-   PEGAR RESULTADOS DOS QUIZZES
-================================ */
-
 const quiz1 = localStorage.getItem("quiz1_acertos");
 const quiz2 = localStorage.getItem("quiz2_acertos");
 const quiz3 = localStorage.getItem("quiz3_acertos");
 const quiz4 = localStorage.getItem("quiz4_acertos");
 
 
-/* ================================
-   MARCAR COMO COMPLETO E BLOQUEAR
-================================ */
+// ================================
+// MARCAR QUIZ COMO COMPLETO
+// ================================
 
 function marcarCompleto(id, resultado) {
 
@@ -18,41 +14,76 @@ function marcarCompleto(id, resultado) {
 
     if (resultado !== null && botao) {
 
-        // Muda o texto
         botao.textContent = "COMPLETO";
 
-        // Deixa verde
         botao.classList.add("completo");
 
-        // Remove o link
         botao.removeAttribute("href");
 
-        // Impede clique
         botao.style.pointerEvents = "none";
 
-        // Muda o cursor
         botao.style.cursor = "default";
     }
+}
+
+
+marcarCompleto("statusQuiz1", quiz1);
+marcarCompleto("statusQuiz2", quiz2);
+marcarCompleto("statusQuiz3", quiz3);
+marcarCompleto("statusQuiz4", quiz4);
+
+
+// ================================
+// PROGRESSO
+// ================================
+
+const resultados = [
+    quiz1,
+    quiz2,
+    quiz3,
+    quiz4
+];
+
+let topicosConcluidos = 0;
+
+resultados.forEach(function(resultado) {
+
+    if (resultado !== null) {
+        topicosConcluidos++;
+    }
+
+});
+
+
+// TEXTO DO PROGRESSO
+
+const textoProgresso = document.querySelector(".progresso p");
+
+if (textoProgresso) {
+
+    textoProgresso.textContent =
+        topicosConcluidos + " / 4 TÓPICOS CONCLUÍDOS";
 
 }
 
 
-/* ================================
-   VERIFICAR CADA QUIZ
-================================ */
+// BARRA DE PROGRESSO
 
-marcarCompleto("statusQuiz1", quiz1);
+const barra = document.querySelector(".barra-progresso-preenchida");
 
-marcarCompleto("statusQuiz2", quiz2);
+if (barra) {
 
-marcarCompleto("statusQuiz3", quiz3);
+    const porcentagem =
+        (topicosConcluidos / 4) * 100;
 
-marcarCompleto("statusQuiz4", quiz4);
+    barra.style.width = porcentagem + "%";
+
+}
 
 
-/* ================================
-   VERIFICAR SE TODOS FORAM FEITOS
-================================ */
+// ================================
+// FINAL DOS 4 QUIZZES
+// ================================
 
 if (
     quiz1 !== null &&
@@ -61,8 +92,6 @@ if (
     quiz4 !== null
 ) {
 
-    /* SOMAR ACERTOS */
-
     const totalAcertos =
         Number(quiz1) +
         Number(quiz2) +
@@ -70,29 +99,23 @@ if (
         Number(quiz4);
 
 
-    /* TOTAL DE PERGUNTAS */
-
     const totalPerguntas = 20;
 
-
-    /* CALCULAR TAXA */
-
-    const taxa = (totalAcertos / totalPerguntas) * 100;
+    const taxa =
+        (totalAcertos / totalPerguntas) * 100;
 
 
-    /* PEGAR AVISO */
+    const aviso =
+        document.getElementById("avisoFinal");
 
-    const aviso = document.getElementById("avisoFinal");
-
-    const mensagem = document.getElementById("mensagemFinal");
+    const mensagem =
+        document.getElementById("mensagemFinal");
 
 
     if (aviso && mensagem) {
 
         aviso.classList.add("mostrar");
 
-
-        /* 80% OU MAIS */
 
         if (taxa >= 80) {
 
@@ -104,12 +127,7 @@ if (
                 "VOCÊ ATINGIU 80% OU MAIS!<br>" +
                 "PEGUE SEU BRINDE COM ALGUM DOS RESPONSÁVEIS.";
 
-        }
-
-
-        /* MENOS DE 80% */
-
-        else {
+        } else {
 
             mensagem.innerHTML =
                 "VOCÊ COMPLETOU TODAS AS PERGUNTAS!<br><br>" +
@@ -120,17 +138,26 @@ if (
 
         }
 
-        function reiniciarProjeto() {
-
-    localStorage.removeItem("quiz1_acertos");
-    localStorage.removeItem("quiz2_acertos");
-    localStorage.removeItem("quiz3_acertos");
-    localStorage.removeItem("quiz4_acertos");
-
-    window.location.href = "../index.html";
+    }
 
 }
 
-    }
+
+// ================================
+// REINICIAR PROJETO
+// ================================
+
+function reiniciarProjeto() {
+
+    localStorage.removeItem("quiz1_acertos");
+
+    localStorage.removeItem("quiz2_acertos");
+
+    localStorage.removeItem("quiz3_acertos");
+
+    localStorage.removeItem("quiz4_acertos");
+
+
+    window.location.href = "../index.html";
 
 }

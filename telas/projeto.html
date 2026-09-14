@@ -24,12 +24,14 @@
         </h1>
 
 
-        <!-- PRIMEIRA FILEIRA -->
+        <!-- PROJETOS -->
 
         <section class="lista-projetos">
 
-            <button class="projeto" onclick="abrirProjeto('renova')">
-                RENOVA
+            <!-- PRIMEIRA FILEIRA -->
+
+            <button class="projeto" onclick="abrirProjeto('reviva')">
+                REVIVA
             </button>
 
             <button class="projeto" onclick="abrirProjeto('essenza')">
@@ -47,55 +49,89 @@
                 PROJETO DO VITOR
             </button>
 
-            
             <a href="topicos.html" class="projeto botao-proximatela">
-                PRÓXIMA TELA
+                CONTINUAR
             </a>
 
             <button class="projeto" onclick="abrirProjeto('robotica')">
                 ROBOTICA 1
             </button>
 
-
         </section>
 
     </main>
 
 
-    <!-- FUNDO ESCURO / DESFOCADO -->
+    <!-- =========================================
+         FUNDO ESCURO / DESFOCADO
+    ========================================= -->
 
-    <div class="fundo-modal" id="fundoModal" onclick="fecharProjeto()">
+    <div
+        class="fundo-modal"
+        id="fundoModal"
+        onclick="fecharProjeto()">
     </div>
 
 
-    <!-- CARD DO PROJETO -->
+    <!-- =========================================
+         MODAL DO PROJETO
+    ========================================= -->
 
-    <section class="modal-projeto" id="modalProjeto">
+    <section
+        class="modal-projeto"
+        id="modalProjeto">
 
-        <button class="fechar" onclick="fecharProjeto()">
+        <!-- BOTÃO X -->
+
+        <button
+            class="fechar"
+            onclick="fecharProjeto()">
             ×
         </button>
+
+
+        <!-- IMAGEM -->
 
         <img
             id="imagemProjeto"
             src=""
-            alt="Imagem do projeto"
-        >
+            alt="Imagem do projeto">
+
+
+        <!-- TÍTULO -->
 
         <h2 id="nomeProjeto">
-            Projeto
+            PROJETO
         </h2>
 
-        <p id="descricaoProjeto">
-            Informações sobre o projeto.
-        </p>
 
-        <button class="botao-voltar" onclick="fecharProjeto()">
+        <!-- INFORMAÇÕES -->
+
+        <div class="informacoes-projeto">
+
+            <h3>
+                INFORMAÇÕES SOBRE O PROJETO
+            </h3>
+
+            <p id="descricaoProjeto">
+                Informações sobre o projeto.
+            </p>
+
+        </div>
+
+
+        <!-- BOTÃO VOLTAR -->
+
+        <button
+            class="botao-voltar"
+            onclick="fecharProjeto()">
             VOLTAR
         </button>
 
     </section>
 
+
+    <!-- JAVASCRIPT -->
 
     <script src="../JavaScript/projeto.js"></script>
 
