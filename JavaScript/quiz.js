@@ -68,14 +68,13 @@ function conferir() {
     }
 
     let acertos = 0;
-    let erros = 0;
-
 
     blocos.forEach(function(bloco, numeroPergunta) {
 
         const alternativas = bloco.querySelectorAll(".alternativa");
 
         const respostaUsuario = respostas[numeroPergunta];
+
         const respostaCorreta = gabarito[quizAtual][numeroPergunta];
 
 
@@ -83,12 +82,14 @@ function conferir() {
 
             const letra = alternativa.textContent.trim().charAt(0);
 
-            // Mostra a correta em verde
+
+            // Mostra a resposta correta
             if (letra === respostaCorreta) {
                 alternativa.classList.add("correta");
             }
 
-            // Mostra o que o usuário marcou
+
+            // Mostra a resposta escolhida pelo usuário
             if (letra === respostaUsuario) {
 
                 if (respostaUsuario === respostaCorreta) {
@@ -99,7 +100,6 @@ function conferir() {
                 } else {
 
                     alternativa.classList.add("errada");
-                    erros++;
 
                 }
 
@@ -110,18 +110,15 @@ function conferir() {
     });
 
 
-    // Mostra acertos e erros
-    document.getElementById("acertosQuiz").textContent = acertos;
-    document.getElementById("errosQuiz").textContent = erros;
-
+    // Mostra o resultado visual do quiz
     document.getElementById("resultadoQuiz").classList.add("mostrar");
 
 
-    // Guarda o resultado desse quiz
+    // Guarda os acertos
     localStorage.setItem(quizAtual + "_acertos", acertos);
 
 
-    // Marca que foi conferido
+    // Marca que o quiz foi conferido
     document.body.classList.add("quiz-conferido");
 }
 
@@ -131,7 +128,9 @@ function conferir() {
 function completarQuiz() {
 
     if (!document.body.classList.contains("quiz-conferido")) {
+
         alert("Clique em CONFERIR antes de completar o quiz.");
+
         return;
     }
 
