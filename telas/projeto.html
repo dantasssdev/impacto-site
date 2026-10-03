@@ -2,15 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Conheça nossos projetos</title>
 
     <link rel="stylesheet" href="../style.css">
-
 </head>
 
 <body class="pagina-projetos">
@@ -28,43 +25,115 @@
 
         <section class="lista-projetos">
 
-            <!-- PRIMEIRA FILEIRA -->
 
-            <button class="projeto" onclick="abrirProjeto('reviva')">
-                REVIVA
-            </button>
+            <!-- REVIVA -->
 
-            <button class="projeto" onclick="abrirProjeto('essenza')">
-                ESSENZA
-            </button>
+            <div class="item-projeto">
 
-            <button class="projeto" onclick="abrirProjeto('impacto')">
-                IMPACTO
-            </button>
+                <h2>REVIVA</h2>
+
+                <button class="projeto" onclick="abrirProjeto('reviva')">
+
+                    <img
+                        src="../img/projreviva.jpg"
+                        alt="Projeto REVIVA">
+
+                </button>
+
+            </div>
 
 
-            <!-- SEGUNDA FILEIRA -->
+            <!-- ESSENZA -->
 
-            <button class="projeto" onclick="abrirProjeto('vitor')">
-                PROJETO DO VITOR
-            </button>
+            <div class="item-projeto">
 
-            <a href="topicos.html" class="projeto botao-proximatela">
-                CONTINUAR
-            </a>
+                <h2>ESSENZA</h2>
 
-            <button class="projeto" onclick="abrirProjeto('robotica')">
-                ROBOTICA 1
-            </button>
+                <button class="projeto" onclick="abrirProjeto('essenza')">
+
+                    <img
+                        src="../img/projessenza.png"
+                        alt="Projeto ESSENZA">
+
+                </button>
+
+            </div>
+
+
+            <!-- IMPACTO -->
+
+            <div class="item-projeto">
+
+                <h2>IMPACTO</h2>
+
+                <button class="projeto" onclick="abrirProjeto('impacto')">
+
+                    <img
+                        src="../img/projimpacto.png"
+                        alt="Projeto IMPACTO">
+
+                </button>
+
+            </div>
+
+
+            <!-- PROJETO DO VITOR -->
+
+            <div class="item-projeto">
+
+                <h2>PROJETO DO VITOR</h2>
+
+                <button class="projeto" onclick="abrirProjeto('vitor')">
+
+                    <img
+                        src="../img/projvitor.png"
+                        alt="Projeto do Vitor">
+
+                </button>
+
+            </div>
+
+
+            <!-- CONTINUAR -->
+
+            <div class="item-projeto item-continuar">
+
+                <h2>&nbsp;</h2>
+
+                <a
+                    href="topicos.html"
+                    class="projeto botao-proximatela">
+
+                    CONTINUAR
+
+                </a>
+
+            </div>
+
+
+            <!-- ROBÓTICA -->
+
+            <div class="item-projeto">
+
+                <h2>ROBOTICA 1</h2>
+
+                <button class="projeto" onclick="abrirProjeto('robotica')">
+
+                    <img
+                        src="../img/projrobotica.png"
+                        alt="Projeto de Robótica">
+
+                </button>
+
+            </div>
+
 
         </section>
 
     </main>
 
 
-    <!-- =========================================
-         FUNDO ESCURO / DESFOCADO
-    ========================================= -->
+    <!-- FUNDO ESCURO / DESFOCADO -->
 
     <div
         class="fundo-modal"
@@ -73,20 +142,21 @@
     </div>
 
 
-    <!-- =========================================
-         MODAL DO PROJETO
-    ========================================= -->
+    <!-- MODAL DO PROJETO -->
 
     <section
         class="modal-projeto"
         id="modalProjeto">
+
 
         <!-- BOTÃO X -->
 
         <button
             class="fechar"
             onclick="fecharProjeto()">
+
             ×
+
         </button>
 
 
@@ -125,7 +195,9 @@
         <button
             class="botao-voltar"
             onclick="fecharProjeto()">
+
             VOLTAR
+
         </button>
 
     </section>

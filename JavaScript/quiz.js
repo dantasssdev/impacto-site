@@ -19,7 +19,9 @@ let respostas = [];
 const blocos = document.querySelectorAll(".bloco-pergunta");
 
 
-/* SELECIONAR ALTERNATIVA */
+// ================================
+// SELECIONAR ALTERNATIVA
+// ================================
 
 blocos.forEach(function(bloco, numeroPergunta) {
 
@@ -34,7 +36,7 @@ blocos.forEach(function(bloco, numeroPergunta) {
                 return;
             }
 
-            // Remove seleção das outras alternativas
+            // Remove seleção das outras
             alternativas.forEach(function(item) {
                 item.classList.remove("selecionada");
             });
@@ -53,86 +55,119 @@ blocos.forEach(function(bloco, numeroPergunta) {
 });
 
 
-/* CONFERIR */
+// ================================
+// CONFERIR
+// ================================
 
 function conferir() {
 
-    // Verifica se respondeu tudo
+    // Verifica se respondeu todas
     for (let i = 0; i < blocos.length; i++) {
 
         if (!respostas[i]) {
+
             alert("Responda todas as perguntas antes de conferir.");
+
             return;
         }
-
     }
+
 
     let acertos = 0;
 
+
     blocos.forEach(function(bloco, numeroPergunta) {
 
-        const alternativas = bloco.querySelectorAll(".alternativa");
+        const alternativas =
+            bloco.querySelectorAll(".alternativa");
 
-        const respostaUsuario = respostas[numeroPergunta];
+        const respostaUsuario =
+            respostas[numeroPergunta];
 
-        const respostaCorreta = gabarito[quizAtual][numeroPergunta];
+        const respostaCorreta =
+            gabarito[quizAtual][numeroPergunta];
 
 
         alternativas.forEach(function(alternativa) {
 
-            const letra = alternativa.textContent.trim().charAt(0);
+            const letra =
+                alternativa.textContent.trim().charAt(0);
 
 
             // Mostra a resposta correta
             if (letra === respostaCorreta) {
+
                 alternativa.classList.add("correta");
             }
 
 
-            // Mostra a resposta escolhida pelo usuário
+            // Mostra a resposta escolhida
             if (letra === respostaUsuario) {
 
                 if (respostaUsuario === respostaCorreta) {
 
                     alternativa.classList.add("correta");
+
                     acertos++;
 
                 } else {
 
                     alternativa.classList.add("errada");
-
                 }
-
             }
+
+
+            // Bloqueia a alternativa
+            alternativa.style.pointerEvents = "none";
+
+            alternativa.style.cursor = "default";
 
         });
 
     });
 
 
-    // Mostra o resultado visual do quiz
-    document.getElementById("resultadoQuiz").classList.add("mostrar");
+    // ================================
+    // SALVA O RESULTADO
+    // ================================
+
+    localStorage.setItem(
+        quizAtual + "_acertos",
+        acertos
+    );
 
 
-    // Guarda os acertos
-    localStorage.setItem(quizAtual + "_acertos", acertos);
+    // MARCA O QUIZ COMO CONFERIDO
+    localStorage.setItem(
+        quizAtual + "_conferido",
+        "true"
+    );
 
 
-    // Marca que o quiz foi conferido
+    // Marca visualmente que foi conferido
     document.body.classList.add("quiz-conferido");
 }
 
 
-/* COMPLETAR */
+// ================================
+// COMPLETAR
+// ================================
 
 function completarQuiz() {
 
-    if (!document.body.classList.contains("quiz-conferido")) {
+    // Verifica se o quiz foi realmente conferido
+    const conferido =
+        localStorage.getItem(quizAtual + "_conferido");
+
+
+    if (conferido !== "true") {
 
         alert("Clique em CONFERIR antes de completar o quiz.");
 
         return;
     }
 
+
+    // Volta para os tópicos
     window.location.href = "topicos.html";
 }
